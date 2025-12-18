@@ -10,7 +10,6 @@ import SelectField from '../components/inputFields/SelectField';
 import cities from '../data/city.json';
 
 export const Register = () => {
-  // 如果有資料就顯示舊資料
   const [district, setDistrict] = useState<string[]>([]);
   const cityLists = cities.map((city) => city.cityName);
   const mobile = useMediaQuery('(max-width: 768px)');
