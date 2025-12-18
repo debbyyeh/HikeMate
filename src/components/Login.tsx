@@ -1,4 +1,5 @@
 import { zodResolver } from '@hookform/resolvers/zod';
+import { Button } from '@mui/material';
 import { useForm } from 'react-hook-form';
 import z from 'zod';
 import FormField from './inputFields/FormField';
@@ -48,9 +49,9 @@ export const Login = () => {
           }}
         />
       </div>
-      <button className="mt-4" onClick={onDone}>
+      <Button className="mt-4" onClick={onDone}>
         登入
-      </button>
+      </Button>
     </div>
   );
 };
