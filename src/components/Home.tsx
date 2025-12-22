@@ -14,7 +14,7 @@ export const Home = () => {
   //TODO: call API to use email to search database to see if there has records
   const { t } = useTranslation();
   const [menu, setMenu] = useState(false);
-  const langRef = useRef(null);
+  const langRef = useRef<HTMLDivElement | null>(null);
 
   return (
     <>
@@ -25,6 +25,7 @@ export const Home = () => {
 
         <Menu
           open={menu}
+          onClose={() => setMenu(false)}
           anchorEl={langRef.current}
           anchorOrigin={{
             vertical: 'top',
