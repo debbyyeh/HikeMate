@@ -18,27 +18,33 @@ export const Home = () => {
 
   return (
     <>
-      <div>
-        <div className="" ref={langRef}>
-          <IconButton onClick={() => setMenu(!menu)}>
-            <LanguageIcon sx={{ color: '#fff' }} />
-          </IconButton>
-          <Menu open={menu} anchorEl={langRef.current}>
-            {locales.map((lang) => {
-              return (
-                <MenuItem
-                  key={`${lang.label}`}
-                  onClick={() => {
-                    setLanguage(lang.value);
-                    setMenu(false);
-                  }}
-                >
-                  {lang.short}
-                </MenuItem>
-              );
-            })}
-          </Menu>
-        </div>
+      <div className="flex justify-end" ref={langRef}>
+        <IconButton onClick={() => setMenu(!menu)}>
+          <LanguageIcon sx={{ color: '#fff' }} />
+        </IconButton>
+
+        <Menu
+          open={menu}
+          anchorEl={langRef.current}
+          anchorOrigin={{
+            vertical: 'top',
+            horizontal: 'right',
+          }}
+        >
+          {locales.map((lang) => {
+            return (
+              <MenuItem
+                key={`${lang.label}`}
+                onClick={() => {
+                  setLanguage(lang.value);
+                  setMenu(false);
+                }}
+              >
+                {lang.short}
+              </MenuItem>
+            );
+          })}
+        </Menu>
       </div>
       <FormField label="email" id="email" />
       <Button
