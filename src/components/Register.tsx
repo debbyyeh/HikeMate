@@ -4,10 +4,10 @@ import dayjs from 'dayjs';
 import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import * as z from 'zod';
-import DateInputField from '../components/inputFields/DateInputField';
-import FormField from '../components/inputFields/FormField';
-import SelectField from '../components/inputFields/SelectField';
 import cities from '../data/city.json';
+import DateInputField from './inputFields/DateInputField';
+import FormField from './inputFields/FormField';
+import SelectField from './inputFields/SelectField';
 
 export const Register = () => {
   // 如果有資料就顯示舊資料
@@ -80,7 +80,7 @@ export const Register = () => {
   }, [city]);
 
   return (
-    <>
+    <div className="w-1/2 mx-auto">
       <FormField
         id="name"
         label="name"
@@ -173,7 +173,6 @@ export const Register = () => {
             id="idNumber"
             label="ID-number"
             showLabel={false}
-            type="number"
             onChange={(e) => {
               setValue('idNumber', Number(e));
               trigger('idNumber');
@@ -182,34 +181,40 @@ export const Register = () => {
         </div>
       </div>
       <Divider className="bg-gray-600" />
-      <div className="my-2 text-left">Emergency Contact</div>
-      <FormField
-        id="contactPerson"
-        label="Contact Person"
-        showLabel={false}
-        labelLen={130}
-        onChange={(e) => {
-          setValue('contactPerson', e);
-          trigger('contactPerson');
-        }}
-      />
+      <div>
+        <div className="my-2 text-left text-offWhite">Emergency Contact</div>
+        <FormField
+          id="contactPerson"
+          label="Contact Person"
+          showLabel={false}
+          labelLen={130}
+          onChange={(e) => {
+            setValue('contactPerson', e);
+            trigger('contactPerson');
+          }}
+        />
+      </div>
       <div className="mt-2">
         <FormField
           id="contactTel"
           label="Contact Tel."
           showLabel={false}
           labelLen={130}
-          type="number"
           onChange={(e) => {
             setValue('contactTel', Number(e));
             trigger('contactTel');
           }}
         />
       </div>
-      {/* if user 就要提供 edit 功能 */}
-      <Button sx={{ marginTop: '20px' }} variant="contained" onClick={onSave} disabled={!isValid}>
+      <Button
+        className="text-offWhite"
+        sx={{ marginTop: '20px' }}
+        variant="contained"
+        onClick={onSave}
+        disabled={!isValid}
+      >
         建立資料
       </Button>
-    </>
+    </div>
   );
 };

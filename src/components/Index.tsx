@@ -1,8 +1,5 @@
 import { Outlet } from '@tanstack/react-router';
-import './App.css';
 
-function App() {
+export const Index = () => {
   return <Outlet />;
-}
-
-export default App;
+};
