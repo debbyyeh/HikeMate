@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react';
+import cn from '../../style';
 
 export default function FormField({
   id,
@@ -21,9 +22,10 @@ export default function FormField({
 }) {
   return (
     <div
-      className={`h-[36px] flex items-center justify-between rounded-md outline-1 ${
+      className={cn(
+        'h-[36px] flex items-center justify-between rounded-md outline-1 outline-offset-1 outline-gray-600 focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-indigo-500',
         showLabel ? 'pl-3' : 'pl-0'
-      }  outline-offset-1 outline-gray-600 focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-indigo-500`}
+      )}
     >
       {showLabel && (
         <label
@@ -34,7 +36,7 @@ export default function FormField({
           {label.toUpperCase()}
         </label>
       )}
-      <div className={`flex ${isMobile ? '' : 'grow'}`}>
+      <div className={cn('flex', isMobile ? null : 'grow')}>
         {children ? (
           children
         ) : (

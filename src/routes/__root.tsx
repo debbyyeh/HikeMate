@@ -1,10 +1,10 @@
 import { createRootRoute, createRoute } from '@tanstack/react-router';
-import App from '../App';
 import { Home } from '../components/Home';
-import { Register } from './register';
+import { Index } from '../components/Index';
+import { Register } from '../components/Register';
 
 export const rootRoute = createRootRoute({
-  component: App,
+  component: Index,
 });
 
 export const indexRoute = createRoute({
