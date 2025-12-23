@@ -1,20 +1,17 @@
 import type { ClassValue } from 'clsx';
 import { clsx } from 'clsx';
 import { extendTailwindMerge } from 'tailwind-merge';
-import tailwindTheme from '../tailwind.config';
+import colors from './constants/color';
+import fontSize from './constants/fontSize';
 
-const fontSize = Object.keys(tailwindTheme.theme?.extend?.fontSize || {}).map(
-  (value) => `text-${value}`
-);
+const textFontSize = Object.keys(fontSize || {}).map((value) => `text-${value}`);
 
-const textColor = Object.keys(tailwindTheme.theme?.extend?.colors || {}).map(
-  (value) => `text-${value}`
-);
+const textColor = Object.keys(colors || {}).map((value) => `text-${value}`);
 
 const twMerge = extendTailwindMerge({
   extend: {
     classGroups: {
-      'font-size': fontSize,
+      'font-size': textFontSize,
       'text-color': textColor,
     },
   },

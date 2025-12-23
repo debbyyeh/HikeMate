@@ -9,7 +9,7 @@ export const Header = () => {
   const langRef = useRef<HTMLDivElement | null>(null);
   return (
     <div className="w-1/2 mx-auto">
-      <div className="text-offWhite">Login</div>
+      <div className="text-label01 text-offWhite">Login</div>
       <div className="flex justify-end" ref={langRef}>
         <IconButton onClick={() => setMenu(!menu)}>
           <LanguageIcon sx={{ color: '#fff' }} />
